@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="container">
+    <form class="form-horizontal" role="form" method="POST" action="/userlist/create">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Create New User</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="roleid" class="float-right">Email</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="" style="width: 2.6rem"><i  class="fa fa-envelope-open-o" aria-hidden="true"></i></div>
+                        <input type="email" name="uemail" class="form-control" autocomplete="off" id="uemail"
+                               placeholder="Email" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                        <span class="text-danger align-middle">
+                            
+                        </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="ufname" class="float-right">First Name</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                        <input type="text" name="ufname" class="form-control" autocomplete="off" id="ufname"
+                               placeholder="First Name" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                        <span class="text-danger align-middle">
+                            
+                            </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="ulname" class="float-right">Last Name</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                        <input type="text" name="ulname" class="form-control" autocomplete="off" id="ulname"
+                               placeholder="Last Name" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                        <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="uno" class="float-right">Phone Number</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                        <input type="text" name="uno" class="form-control" autocomplete="off" id="uno"
+                               placeholder="Phone Number" required autofocus>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                        <span class="text-danger align-middle">
+                            
+                        </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="urole" class="float-right">Role</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <div class="dropdown">
+
+                    <select name="manu" placeholder="dsa">
+                    {% for n in range(user_rname|length) %}
+                    <option value="{{ user_rname[n]['roleid'] }}">{{ user_rname[n]['rolename'] }}</option>
+                    {% endfor %}
+                    </select>
+
+                    </div>
+
+                </div>
+            </div>
+        
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button id = "sdwe" name="btn_re" type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Create</button>
+
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    
+    var div = document.getElementsByClassName('dropdown-menu');
+
+      for(var  i =0;i<div.length;i++){
+
+      for(var  j =0;j<div[i].children.length;j++){
+        document.getElementById("sdwe").value = div[i].children[j]
+
+       div[i].children[j].addEventListener('click',function(){
+
+
+         this.parentNode.previousElementSibling.innerHTML = this.innerHTML;
+       })
+      }
+      }
+</script>
+
+
+{% endblock %}

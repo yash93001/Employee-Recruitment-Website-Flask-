@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div id="layoutSidenav_content" class="float-left" >
+    <main>
+
+
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-table mr-1"></i>Leads list <a type="button" href="/leads/create" class="float-right" id = 'myButton' class="btn btn-sm btn-primary btn-create">Create New</a> </div>
+        <div class="card-body ">
+            <div class="table-responsive">
+                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th >Name</th>
+                        <th>Email</th>
+                        <th>City</th>
+                        <th>Status</th>
+                        <th>Created On</th>
+                        <th class="w-100"><em class="fa fa-cog "></em></th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th >Name</th>
+                        <th>Email</th>
+                        <th>City</th>
+                        <th>Status</th>
+                        <th>Created On</th>
+                        <th class="w-100"><em ></em></th>
+
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                  {% for r in range(detail|length) %}
+                          <tr>
+
+                            <td ><a href="/lead/profile/{{detail[r]['email']}}">{{detail[r]['name']}}</a></td>
+                            <td>{{detail[r]['email']}}</td>
+                            <td>{{detail[r]['city']}}</td>
+                            <td>{{detail[r]['status']}}</td>
+                            <td>{{detail[r]['created_on']}}</td>
+
+                              <td align="center" >
+                              <a class="btn btn-danger" href="/leads/delete/{{detail[r]['email']}}"><em class="fa fa-trash"></em></a>
+
+                            </td>
+
+
+                          </tr>
+
+
+                  {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </main>
+      </div>
+
+
+{% endblock %}

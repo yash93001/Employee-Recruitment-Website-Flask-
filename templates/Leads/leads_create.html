@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+<div class="container bootstrap snippets">
+<div class="row">
+  <div class="col-xs-12 col-sm-9">
+    <form class="form-horizontal" name="first" method="POST" action="/leads/create">
+        <div class="panel panel-default">
+          <div class="panel-body text-center">
+
+          </div>
+        </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">Personal Information</h4>
+        </div>
+        <div class="panel-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              <input type="tel" name="name" class="form-control" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+              <input type="tel" name="email" class="form-control" >
+            </div>
+          </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label text-nowrap">Phone Number</label>
+            <div class="col-sm-10">
+              <input type="tel" name="phone" class="form-control">
+            </div>
+          </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">City</label>
+            <div class="col-sm-10">
+              <input type="tel" name="city" class="form-control">
+            </div>
+          </div>
+        </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">Product Related</h4>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Interested In</label>
+            <div class="col-sm-10">
+              <input type="tel" name="interested_in" class="form-control" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Assigned To</label>
+            <div class="col-sm-10">
+                <div class="dropdown">
+
+                    <select name="manu" placeholder="dsa">
+                    {% for n in range(user_name|length) %}
+                    <option value="{{ user_name[n]['id'] }}">{{ user_name[n]['first_name'] }} {{ user_name[n]['last_name'] }}</option>
+                    {% endfor %}
+                    </select>
+
+                    </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label text-nowrap">Status</label>
+            <div class="col-sm-10">
+                <div class="dropdown">
+
+                    <select name="m1" placeholder="dsa">
+                    <option value="Open">Open</option>
+                    <option value="Qualified">Qualified</option>
+                    <option value="Disqualified">Disqualified</option>
+                    <option value="Won">Won</option>
+                    <option value="lost">lost</option>
+
+                    </select>
+
+                    </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+          <br>
+           <button type="submit" class="btn btn-success">Create</button>
+<br>
+
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

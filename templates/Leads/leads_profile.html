@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container emp-profile mt-lg-5">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRMUo6atjJpnQlDCBp-HKEKEs1Y_CIJE1bE7JMQg18IReqKA8ee" alt=""/>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        {{details[0]['name']}}
+                                    </h5>
+                                    <h6>
+                                        Lead
+                                    </h6>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Details</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <a type="submit" class="profile-edit-btn" href="/leads/edit/{{details[0]['email']}}">Edit Profile</a>
+                    </div>
+                </div>
+                        <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{details[0]['name']}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{details[0]['email']}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{details[0]['phone_no']}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>City</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{details[0]['city']}}</p>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Interested IN</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{details[0]['interested_in']}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Status</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{details[0]['status']}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Lead Owner</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{lead_owner[0]['first_name']}} {{lead_owner[0]['last_name']}}</p>
+                                            </div>
+                                        </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+{% endblock %}

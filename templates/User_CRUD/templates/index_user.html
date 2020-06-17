@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div id="layoutSidenav_content" class="float-right" >
+    <main>
+
+
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-table mr-1"></i>User list <a type="button" href="/userlist/create" class="float-right" id = 'myButton' class="btn btn-sm btn-primary btn-create">Create New</a> </div>
+        <div class="card-body ">
+            <div class="table-responsive">
+                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th >ID</th>
+                        <th>Email</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Phone No</th>
+                        <th>Role</th>
+                        <th>Created ON</th>
+                        <th class="w-100"><em class="fa fa-cog "></em></th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th>ID</th>
+                        <th>Role Name</th>
+                        <th><em ></em></th>
+
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                  {% for r in range(detail|length) %}
+                          <tr>
+
+                            <td >{{detail[r]['id']}}</td>
+                            <td>{{detail[r]['email']}}</td>
+                            <td>{{detail[r]['first_name']}}</td>
+                            <td>{{detail[r]['last_name']}}</td>
+                            <td>{{detail[r]['phone_no']}}</td>
+                            <td>{{user_rname[r]['rolename']}}</td>
+                            <td>{{detail[r]['created_time']}}</td>
+                              <td align="center" >
+                              <a class="btn btn-default" name="editbtn" href="/userlist/{{detail[r]['id']}}"><em class="fa fa-wrench"></em></a>
+                              <a class="btn btn-danger" href="/userlist/delete/{{detail[r]['id']}}"><em class="fa fa-trash"></em></a>
+
+                            </td>
+                              
+
+                          </tr>
+                            
+                          
+                  {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+<div id="layoutSidenav_content" >
+    <main>
+
+
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-table mr-1"></i>Role list <a type="button" href="/role/create" class="float-right" id = 'myButton' class="btn btn-sm btn-primary btn-create">Create New</a> </div>
+        <div class="card-body ">
+            <div class="table-responsive">
+                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Role Name</th>
+                      <th><em ></em></th>
+
+                    </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th>ID</th>
+                        <th>Role Name</th>
+                        <th><em ></em></th>
+
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                      {% for r in range(detail|length) %}
+                              <tr>
+                                <td class="hidden-xs">{{detail[r]['roleid']}}</td>
+                                <td>{{detail[r]['rolename']}}</td>
+                                <td align="center" >
+                                  <a class="btn btn-default" name="editbtn" href="/role/{{detail[r]['roleid']}}.{{detail[r]['rolename']}}" value="{{detail[r]['roleid']}}" ><em class="fa fa-cog"></em></a>
+                                  <a class="btn btn-danger" href="/role/delete/{{detail[r]['roleid']}}"><em class="fa fa-trash"></em></a>
+
+                                </td>
+                                
+                                
+                              </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+
+
+
+{% endblock %}
